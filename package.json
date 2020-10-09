@@ -1,0 +1,12 @@
+{
+  "name": "webpack-",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:againF/webpack-.git",
+  "author": "Alan <wyffcld@163.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "webpack": "^4.44.2",
+    "webpack-cli": "^3.3.12"
+  }
+}
