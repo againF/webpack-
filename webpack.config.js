@@ -12,11 +12,11 @@ module.exports = {
     },
     optimization: {
         minimizer: [
-            new OptimizeCss(),
-            new UglifyJsPlugin()
+            new OptimizeCss(), // 为了压缩css
+            new UglifyJsPlugin() // 压缩js
         ]
     },
-    mode: 'production', // production development
+    mode: 'development', // production development
     entry: './src/index.js', // 入口
     output: {
         filename: 'bundle.[hash:8].js', // 打包后的文件名
@@ -39,6 +39,21 @@ module.exports = {
     module: {
         // 模块
         rules: [
+            {
+                test: /\.js$/,
+                use: {
+                    loader: 'babel-loader',
+                    options: {
+                        presets: [
+                            '@babel/preset-env'
+                        ],
+                        plugins: [
+                            ["@babel/plugin-proposal-decorators", { "legacy": true }],
+                            ["@babel/plugin-proposal-class-properties", { "loose" : true }]
+                        ]
+                    }
+                }
+            },
             {
                 test: /\.css$/,
                 use: [
