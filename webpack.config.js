@@ -1,4 +1,4 @@
-let path = require('path')
+let path = require('path');
 let HtmlWebpackPlugin = require('html-webpack-plugin');
 let MiniCssExtractPlugin = require('mini-css-extract-plugin'); // 将样式文件以Link标签的形式插入到html模板
 let OptimizeCss = require('optimize-css-assets-webpack-plugin');
@@ -41,16 +41,22 @@ module.exports = {
     module: {
         // 模块
         rules: [
-            // {
-            //     test: /\.js$/,
-            //     use: {
-            //         loader: 'eslint-loader',
-            //         options: {
-            //             enforce: "pre"
-            //         }
-            //     },
-                
-            // },
+            { // html里直接引图片
+                test: /\.(htm|html)$/i,
+                loader: 'html-withimg-loader'
+            },
+            { // js里引图片
+                test: /\.(png|jpg|gif)$/i,
+                use: [
+                  {
+                    loader: 'url-loader',
+                    options: {
+                      esModule: false, // 不设false上面的html-withimg-loader图片路径会有问题会输出{default:xxx.png}
+                      limit: 4*1024, // 小于4k的图转成base64,大于4k的作为文件引入
+                    },
+                  },
+                ],
+              },
             {
                 test: /\.js$/,
                 use: {
@@ -164,4 +170,4 @@ module.exports = {
         ]
 
     }
-}
+};

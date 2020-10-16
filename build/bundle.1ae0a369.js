@@ -86,6 +86,17 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "./src/a.js":
+/*!******************!*\
+  !*** ./src/a.js ***!
+  \******************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = \"Alan\"; // require('@babel/polyfill')\n// class B {\n// }\n// function * gen() {\n//     yield 1;\n// }\n// console.log(gen().next())\n// 'aaa'.includes('a')\n\n//# sourceURL=webpack:///./src/a.js?");
+
+/***/ }),
+
 /***/ "./src/index.css":
 /*!***********************!*\
   !*** ./src/index.css ***!
@@ -102,10 +113,23 @@ eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extr
 /*!**********************!*\
   !*** ./src/index.js ***!
   \**********************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-eval("// let str = require('./a.js');\n// console.log(str);\n__webpack_require__(/*! ./index.css */ \"./src/index.css\"); // require('./index.less')\n\n\nvar fn = function fn() {\n  console.log('箭头函数');\n};\n\nfn();\n\n//# sourceURL=webpack:///./src/index.js?");
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _logo_png__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./logo.png */ \"./src/logo.png\");\n\nvar myImage = new Image(100, 200);\nmyImage.src = _logo_png__WEBPACK_IMPORTED_MODULE_0__[\"default\"];\ndocument.body.appendChild(myImage);\n\nvar str = __webpack_require__(/*! ./a.js */ \"./src/a.js\");\n\nconsole.log(str);\n\n__webpack_require__(/*! ./index.css */ \"./src/index.css\"); // require('./index.less')\n\n\nvar fn = function fn() {\n  console.log('箭头函数');\n};\n\nfn(); // @log\n// class A {\n//     a = 1;\n// }\n// let a = new A();\n// console.log(a);\n// function log(target) {\n//     console.log(target, '23')\n// }\n\n//# sourceURL=webpack:///./src/index.js?");
+
+/***/ }),
+
+/***/ "./src/logo.png":
+/*!**********************!*\
+  !*** ./src/logo.png ***!
+  \**********************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (__webpack_require__.p + \"3a6165fcd721d2254ed53a17e2740a79.png\");\n\n//# sourceURL=webpack:///./src/logo.png?");
 
 /***/ })
 

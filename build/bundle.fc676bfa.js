@@ -93,7 +93,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("module.exports = \"Alan\";\n\n//# sourceURL=webpack:///./src/a.js?");
+eval("module.exports = \"Alan\"; // require('@babel/polyfill')\n// class B {\n// }\n// function * gen() {\n//     yield 1;\n// }\n// console.log(gen().next())\n// 'aaa'.includes('a')\n\n//# sourceURL=webpack:///./src/a.js?");
 
 /***/ }),
 
@@ -113,21 +113,23 @@ eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extr
 /*!**********************!*\
   !*** ./src/index.js ***!
   \**********************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-eval("var str = __webpack_require__(/*! ./a.js */ \"./src/a.js\");\n\nconsole.log(str);\n\n__webpack_require__(/*! ./index.css */ \"./src/index.css\");\n\n__webpack_require__(/*! ./index.less */ \"./src/index.less\");\n\nvar fn = function fn() {\n  console.log('箭头函数');\n};\n\nfn();\n\n//# sourceURL=webpack:///./src/index.js?");
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _logo_png__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./logo.png */ \"./src/logo.png\");\n\nvar img = new Image();\nimg.src = _logo_png__WEBPACK_IMPORTED_MODULE_0__[\"default\"];\ndocument.body.appendChild(img);\n\nvar str = __webpack_require__(/*! ./a.js */ \"./src/a.js\");\n\nconsole.log(str);\n\n__webpack_require__(/*! ./index.css */ \"./src/index.css\"); // require('./index.less')\n\n\nvar fn = function fn() {\n  console.log('箭头函数');\n};\n\nfn(); // @log\n// class A {\n//     a = 1;\n// }\n// let a = new A();\n// console.log(a);\n// function log(target) {\n//     console.log(target, '23')\n// }\n\n//# sourceURL=webpack:///./src/index.js?");
 
 /***/ }),
 
-/***/ "./src/index.less":
-/*!************************!*\
-  !*** ./src/index.less ***!
-  \************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/***/ "./src/logo.png":
+/*!**********************!*\
+  !*** ./src/logo.png ***!
+  \**********************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-eval("throw new Error(\"Module parse failed: Unexpected token (1:5)\\nYou may need an appropriate loader to handle this file type, currently no loaders are configured to process this file. See https://webpack.js.org/concepts#loaders\\n> body {\\n|     div {\\n|         border: 1px solid #ccc;\");\n\n//# sourceURL=webpack:///./src/index.less?");
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (__webpack_require__.p + \"3a6165fcd721d2254ed53a17e2740a79.png\");\n\n//# sourceURL=webpack:///./src/logo.png?");
 
 /***/ })
 
