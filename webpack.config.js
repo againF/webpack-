@@ -3,6 +3,7 @@ let HtmlWebpackPlugin = require('html-webpack-plugin');
 let MiniCssExtractPlugin = require('mini-css-extract-plugin'); // 将样式文件以Link标签的形式插入到html模板
 let OptimizeCss = require('optimize-css-assets-webpack-plugin');
 let UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const ESLintPlugin = require('eslint-webpack-plugin');
 module.exports = {
     devServer: {
         port: 3000,
@@ -34,11 +35,22 @@ module.exports = {
         }),
         new MiniCssExtractPlugin({
             filename: 'main.css'
-        })
+        }),
+        new ESLintPlugin()
     ],
     module: {
         // 模块
         rules: [
+            // {
+            //     test: /\.js$/,
+            //     use: {
+            //         loader: 'eslint-loader',
+            //         options: {
+            //             enforce: "pre"
+            //         }
+            //     },
+                
+            // },
             {
                 test: /\.js$/,
                 use: {
@@ -49,10 +61,13 @@ module.exports = {
                         ],
                         plugins: [
                             ["@babel/plugin-proposal-decorators", { "legacy": true }],
-                            ["@babel/plugin-proposal-class-properties", { "loose" : true }]
+                            ["@babel/plugin-proposal-class-properties", { "loose" : true }],
+                            "@babel/plugin-transform-runtime"
                         ]
                     }
-                }
+                },
+                include: path.resolve(__dirname, 'src'),
+                exclude: /node_modules/
             },
             {
                 test: /\.css$/,

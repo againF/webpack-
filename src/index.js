@@ -14,6 +14,6 @@ class A {
 let a = new A();
 console.log(a);
 function log(target) {
-    console.log(target, '23');
+    console.log(target, '23')
     
 }
