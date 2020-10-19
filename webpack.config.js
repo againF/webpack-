@@ -20,7 +20,7 @@ module.exports = {
     mode: 'development', // production development
     entry: './src/index.js', // 入口
     output: {
-        filename: 'bundle.[hash:8].js', // 打包后的文件名
+        filename: 'bundle.[hash:4].js', // 打包后的文件名
         path: path.resolve(__dirname, 'build'), // 必须是绝对路径
     },
     plugins: [
@@ -34,7 +34,7 @@ module.exports = {
             hash: true
         }),
         new MiniCssExtractPlugin({
-            filename: 'main.css'
+            filename: 'asset/css/main.css'
         }),
         new ESLintPlugin()
     ],
@@ -52,7 +52,9 @@ module.exports = {
                     loader: 'url-loader',
                     options: {
                       esModule: false, // 不设false上面的html-withimg-loader图片路径会有问题会输出{default:xxx.png}
-                      limit: 4*1024, // 小于4k的图转成base64,大于4k的作为文件引入
+                      limit: 2*1024, // 小于4k的图转成base64,大于4k的作为文件引入
+                      outputPath: 'asset/image/',
+                      name: '[name].[ext]'
                     },
                   },
                 ],
@@ -100,8 +102,12 @@ module.exports = {
                     //     },
                     // }
                     // }
-                    MiniCssExtractPlugin.loader
-                    , 'css-loader',
+                    {
+                        loader:MiniCssExtractPlugin.loader, // 提取css到文件
+                        options: {
+                            publicPath: '../../',
+                        }
+                    }, 'css-loader',
                     'postcss-loader'
                     // {
                     //     loader: 'postcss-loader',

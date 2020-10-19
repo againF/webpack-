@@ -1,4 +1,4 @@
-import logo from "./logo.png";
+import logo from "./asset/image/logo.png";
 console.log('logo: ');
 console.log(logo);
 let myImage = new Image();
@@ -6,7 +6,7 @@ myImage.src = logo;
 document.body.appendChild(myImage);
 let str = require('./a.js');
 console.log(str);
-require('./index.css');
+require('./asset/css/index.css');
 // require('./index.less')
 
 let fn = () => {

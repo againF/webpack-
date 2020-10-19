@@ -8,5 +8,5 @@ body {
 .imgwrap {
     width: 50px;
     height: 50px;
-    background: url("./logo.png")
+    background: url("../image/logo.png")
 }
