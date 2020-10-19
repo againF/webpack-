@@ -18,19 +18,47 @@ module.exports = {
         ]
     },
     mode: 'development', // production development
-    entry: './src/index.js', // 入口
+    // entry: './src/index.js', // 入口
+    // output: {
+    //     filename: 'bundle.[hash:4].js', // 打包后的文件名
+    //     path: path.resolve(__dirname, 'build'), // 必须是绝对路径
+    // },
+    entry: {
+        home: './src/index.js',
+        other: './src/other.js'
+    },
     output: {
-        filename: 'bundle.[hash:4].js', // 打包后的文件名
-        path: path.resolve(__dirname, 'build'), // 必须是绝对路径
+        filename: '[name].[hash:4].bundle.js',
+        path: path.resolve(__dirname, 'build')
     },
     plugins: [
+        // new HtmlWebpackPlugin({
+        //     template: './src/index.html',
+        //     filename: 'index.html',
+        //     // minify: {
+        //     //     removeAttributeQuotes: true, // 删除双引号
+        //     //     collapseWhitespace: true, // 折叠空行
+        //     // },
+        //     hash: true
+        // }),
         new HtmlWebpackPlugin({
             template: './src/index.html',
-            filename: 'index.html',
+            filename: 'home.html',
             // minify: {
             //     removeAttributeQuotes: true, // 删除双引号
             //     collapseWhitespace: true, // 折叠空行
             // },
+            chunks: ['home'],
+            hash: true
+        }),
+        new HtmlWebpackPlugin({
+            template: './src/other.html',
+            filename: 'other.html',
+            // minify: {
+            //     removeAttributeQuotes: true, // 删除双引号
+            //     collapseWhitespace: true, // 折叠空行
+            // },
+            chunks:['other'],
             hash: true
         }),
         new MiniCssExtractPlugin({
