@@ -14,10 +14,13 @@ module.exports = {
     optimization: {
         minimizer: [
             new OptimizeCss(), // 为了压缩css
-            new UglifyJsPlugin() // 压缩js
+            new UglifyJsPlugin({
+                sourceMap: true
+            }) // 压缩js
         ]
     },
-    mode: 'development', // production development
+    devtool: 'source-map',
+    mode: 'production', // production development
     // entry: './src/index.js', // 入口
     // output: {
     //     filename: 'bundle.[hash:4].js', // 打包后的文件名
