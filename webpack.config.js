@@ -4,8 +4,8 @@ let MiniCssExtractPlugin = require('mini-css-extract-plugin'); // 将样式文�
 let OptimizeCss = require('optimize-css-assets-webpack-plugin');
 let UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const ESLintPlugin = require('eslint-webpack-plugin');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const CopyPlugin = require('copy-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin'); // 编译时先删除build
+const CopyPlugin = require('copy-webpack-plugin'); // 把文件拷贝到build
 const webpack = require('webpack');
 
 module.exports = {
@@ -14,6 +14,9 @@ module.exports = {
         progress: true, // 进度条
         contentBase: './build',
         compress: true, // 压缩
+        proxy: {
+            '/api': 'http://localhost:8000'
+        }
     },
     optimization: {
         minimizer: [
