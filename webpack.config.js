@@ -4,6 +4,10 @@ let MiniCssExtractPlugin = require('mini-css-extract-plugin'); // 将样式文�
 let OptimizeCss = require('optimize-css-assets-webpack-plugin');
 let UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const ESLintPlugin = require('eslint-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
+const webpack = require('webpack');
+
 module.exports = {
     devServer: {
         port: 3000,
@@ -73,7 +77,16 @@ module.exports = {
         new MiniCssExtractPlugin({
             filename: 'asset/css/main.css'
         }),
-        new ESLintPlugin()
+        // new ESLintPlugin(),
+        new CleanWebpackPlugin(),
+        new CopyPlugin({
+            patterns: [
+              { from: './README.md', to: './' },
+            ],
+          }),
+        new webpack.BannerPlugin({
+            banner: 'By Alan'
+        })
     ],
     module: {
         // 模块

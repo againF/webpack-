@@ -1,2 +1,2 @@
 let a = 'aaa';
-console.lo('other error');
+console.lo('other error 1');
