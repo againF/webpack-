@@ -1,5 +1,7 @@
 // import logo from "./asset/image/logo.png";
 import logo from "Image/logo.png";
+console.log('mode: ', MODE);
+
 console.log('logo3: ');
 console.log(logo);
 let myImage = new Image();

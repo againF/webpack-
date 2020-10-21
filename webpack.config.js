@@ -95,6 +95,9 @@ module.exports = {
           }),
         new webpack.BannerPlugin({
             banner: 'By Alan'
+        }),
+        new webpack.DefinePlugin({ // 定义全局变量
+            MODE: JSON.stringify("dev")
         })
     ],
     module: {
