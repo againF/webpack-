@@ -18,6 +18,12 @@ module.exports = {
             '/api': 'http://localhost:8000'
         }
     },
+    resolve: {
+        alias: {
+            Css: path.resolve(__dirname, 'src/asset/css/'),
+            Image: path.resolve(__dirname, 'src/asset/image/')
+        }
+    },
     optimization: {
         minimizer: [
             new OptimizeCss(), // 为了压缩css
