@@ -13,7 +13,8 @@ module.exports = {
     resolve: {
         alias: {
             Css: path.resolve(__dirname, 'src/asset/css/'),
-            Image: path.resolve(__dirname, 'src/asset/image/')
+            Image: path.resolve(__dirname, 'src/asset/image/'),
+            'vue$': 'vue/dist/vue.esm.js'
         }
     },
     optimization: {
@@ -88,6 +89,9 @@ module.exports = {
         }),
         new webpack.DefinePlugin({ // 定义全局变量
             MODE: JSON.stringify("dev")
+        }),
+        new webpack.DllReferencePlugin({
+            manifest: path.resolve(__dirname, 'dist', 'manifest.json')
         })
     ],
     module: {
