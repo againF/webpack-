@@ -30,7 +30,8 @@ module.exports = {
                     chunks: 'all',
                 }
             }
-        }
+        },
+        moduleIds: 'named'
     },
     // entry: './src/index.js', // 入口
     // output: {

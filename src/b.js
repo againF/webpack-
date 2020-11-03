@@ -1,4 +1,4 @@
 module.exports = () => {
-    console.log('b.js');
+    console.log('b12.js');
     
 }
