@@ -1,10 +1,5 @@
 // import logo from "./asset/image/logo.png";
 import logo from "Image/logo.png";
-import Vue from "vue";
-import a from "../src/a.js";
-import b from "../src/b.js";
-a();
-b();
 console.log('mode: ', MODE);
 
 console.log('logo3: ');

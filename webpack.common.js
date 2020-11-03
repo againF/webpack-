@@ -9,7 +9,7 @@ const CopyPlugin = require('copy-webpack-plugin'); // 把文件拷贝到build
 const webpack = require('webpack');
 
 module.exports = {
-    
+
     resolve: {
         alias: {
             Css: path.resolve(__dirname, 'src/asset/css/'),
@@ -23,7 +23,14 @@ module.exports = {
             new UglifyJsPlugin({
                 sourceMap: true
             }) // 压缩js
-        ]
+        ],
+        splitChunks: {
+            cacheGroups: {
+                common: {
+                    chunks: 'all',
+                }
+            }
+        }
     },
     // entry: './src/index.js', // 入口
     // output: {
@@ -71,7 +78,7 @@ module.exports = {
             //     removeAttributeQuotes: true, // 删除双引号
             //     collapseWhitespace: true, // 折叠空行
             // },
-            chunks:['other'],
+            chunks: ['other'],
             hash: true
         }),
         new MiniCssExtractPlugin({
@@ -81,9 +88,9 @@ module.exports = {
         new CleanWebpackPlugin(),
         new CopyPlugin({
             patterns: [
-              { from: './README.md', to: './' },
+                { from: './README.md', to: './' },
             ],
-          }),
+        }),
         new webpack.BannerPlugin({
             banner: 'By Alan'
         }),
@@ -104,17 +111,17 @@ module.exports = {
             { // js里引图片
                 test: /\.(png|jpg|gif)$/i,
                 use: [
-                  {
-                    loader: 'url-loader',
-                    options: {
-                      esModule: false, // 不设false上面的html-withimg-loader图片路径会有问题会输出{default:xxx.png}
-                      limit: 2*1024, // 小于4k的图转成base64,大于4k的作为文件引入
-                      outputPath: 'asset/image/',
-                      name: '[name].[ext]'
+                    {
+                        loader: 'url-loader',
+                        options: {
+                            esModule: false, // 不设false上面的html-withimg-loader图片路径会有问题会输出{default:xxx.png}
+                            limit: 2 * 1024, // 小于4k的图转成base64,大于4k的作为文件引入
+                            outputPath: 'asset/image/',
+                            name: '[name].[ext]'
+                        },
                     },
-                  },
                 ],
-              },
+            },
             {
                 test: /\.js$/,
                 use: {
@@ -125,7 +132,7 @@ module.exports = {
                         ],
                         plugins: [
                             ["@babel/plugin-proposal-decorators", { "legacy": true }],
-                            ["@babel/plugin-proposal-class-properties", { "loose" : true }],
+                            ["@babel/plugin-proposal-class-properties", { "loose": true }],
                             "@babel/plugin-transform-runtime"
                         ]
                     }
@@ -159,7 +166,7 @@ module.exports = {
                     // }
                     // }
                     {
-                        loader:MiniCssExtractPlugin.loader, // 提取css到文件
+                        loader: MiniCssExtractPlugin.loader, // 提取css到文件
                         options: {
                             publicPath: '../../',
                         }

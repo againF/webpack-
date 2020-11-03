@@ -1,7 +1,4 @@
 module.exports = "Alan";
-module.exports = () => {
-    console.log('a.js');
-};
 // require('@babel/polyfill')
 // class B {
 

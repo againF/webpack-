@@ -1,9 +1,6 @@
 import Vue from "vue";
+let a = 'aaa';
 console.log('other error 1');
-import a from "../src/a.js";
-import b from "../src/b.js";
-a();
-b();
 
 // function reqListener () {
 //     console.log(this.responseText);
