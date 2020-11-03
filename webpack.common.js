@@ -24,7 +24,7 @@ module.exports = {
                 sourceMap: true
             }) // 压缩js
         ],
-        splitChunks: {
+        splitChunks: { // 抽离公共代码
             cacheGroups: {
                 common: {
                     chunks: 'all',

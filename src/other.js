@@ -21,6 +21,11 @@ let vm = new Vue({
     methods: {
         sayHello() {
             alert(this.user);
+            import('./sayHi.js').then((module) => {
+                console.log(module);
+                const say = module.default;
+                say();
+            });
         }
     }
 });
